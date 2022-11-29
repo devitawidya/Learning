@@ -1,0 +1,291 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 6,
+    "passes": 2,
+    "pending": 0,
+    "failures": 4,
+    "start": "2022-11-29T17:30:24.462Z",
+    "end": "2022-11-29T17:30:32.045Z",
+    "duration": 7583,
+    "testsRegistered": 6,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fb0457ef-1b96-48a7-a957-d2ca22b9ce45",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "72ffa0f9-fe00-4c6e-b8ca-f08a47b3a1a0",
+          "title": "POST /booking",
+          "fullFile": "C:\\Users\\Pinhome Engineer 17\\Documents\\Learning\\SampleApiAutomation\\api\\test\\createBooking.js",
+          "file": "\\api\\test\\createBooking.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Creates a new booking in the API",
+              "fullTitle": "POST /booking Creates a new booking in the API",
+              "timedOut": false,
+              "duration": 1183,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(\"/booking\")\n    .send(BOOKING_DATA);\n\nexpect(response.status).to.eql(200);\nexpect(response.body).to.have.property(\"bookingid\");\nexpect(response.body.booking).to.eql(BOOKING_DATA);",
+              "err": {
+                "message": "AssertionError: expected 418 to deeply equal 200",
+                "estack": "AssertionError: expected 418 to deeply equal 200\n    at Context.<anonymous> (api\\test\\createBooking.js:11:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 418\n+ 200\n"
+              },
+              "uuid": "bbfed6fb-2738-4d03-a0c5-b4ab5877e31d",
+              "parentUUID": "72ffa0f9-fe00-4c6e-b8ca-f08a47b3a1a0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "bbfed6fb-2738-4d03-a0c5-b4ab5877e31d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1183,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "cf2bbcb1-f07e-466e-8ea8-f85ff023883c",
+          "title": "POST /auth",
+          "fullFile": "C:\\Users\\Pinhome Engineer 17\\Documents\\Learning\\SampleApiAutomation\\api\\test\\createToken.js",
+          "file": "\\api\\test\\createToken.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Creates a new auth token to use for access to the PUT and DELETE /booking",
+              "fullTitle": "POST /auth Creates a new auth token to use for access to the PUT and DELETE /booking",
+              "timedOut": false,
+              "duration": 1062,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(\"/auth\")\n    .send(ADMIN_DATA);\n\nexpect(response.status).to.eql(200);\nexpect(response.body).to.have.property(\"token\");",
+              "err": {},
+              "uuid": "62c55677-3050-468f-85a1-aeb40df05059",
+              "parentUUID": "cf2bbcb1-f07e-466e-8ea8-f85ff023883c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "62c55677-3050-468f-85a1-aeb40df05059"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1062,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "68852b5c-d0d0-4ed8-95c7-eca8f05d9a99",
+          "title": "DELETE /booking/:id",
+          "fullFile": "C:\\Users\\Pinhome Engineer 17\\Documents\\Learning\\SampleApiAutomation\\api\\test\\deleteBooking.js",
+          "file": "\\api\\test\\deleteBooking.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Delete a booking  that exist within the API",
+              "fullTitle": "DELETE /booking/:id Delete a booking  that exist within the API",
+              "timedOut": false,
+              "duration": 1065,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const query = \"896\" //example\nconst response = await request\n.delete(`/booking/${query}`)\n.set({ Authorization: AUTH})\n\nexpect(response.status).to.eql(201);",
+              "err": {},
+              "uuid": "7a566072-04b4-4f04-8c55-01288ec02156",
+              "parentUUID": "68852b5c-d0d0-4ed8-95c7-eca8f05d9a99",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7a566072-04b4-4f04-8c55-01288ec02156"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1065,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "a94a1e46-383c-4f59-9932-e544e18f0e1b",
+          "title": "GET /booking and /booking/:id",
+          "fullFile": "C:\\Users\\Pinhome Engineer 17\\Documents\\Learning\\SampleApiAutomation\\api\\test\\getBooking.js",
+          "file": "\\api\\test\\getBooking.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Returns the ids of all the bookings that exist within the API",
+              "fullTitle": "GET /booking and /booking/:id Returns the ids of all the bookings that exist within the API",
+              "timedOut": true,
+              "duration": 2007,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request.get(\"/booking\");\n\nexpect(response.status).to.eql(200);\nexpect(response.body.length).to.eql(4);\ndone();",
+              "err": {
+                "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (C:\\Users\\Pinhome Engineer 17\\Documents\\Learning\\SampleApiAutomation\\api\\test\\getBooking.js)",
+                "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (C:\\Users\\Pinhome Engineer 17\\Documents\\Learning\\SampleApiAutomation\\api\\test\\getBooking.js)\n    at listOnTimeout (node:internal/timers:564:17)\n    at process.processTimers (node:internal/timers:507:7)",
+                "diff": null
+              },
+              "uuid": "6329eb48-2b39-4a0c-8218-ace5c9363f69",
+              "parentUUID": "a94a1e46-383c-4f59-9932-e544e18f0e1b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Returns a specific booking based upon the booking id provided",
+              "fullTitle": "GET /booking and /booking/:id Returns a specific booking based upon the booking id provided",
+              "timedOut": false,
+              "duration": 1161,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const query = \"12311\" //because bookingId = 1 is not available\nconst response = await request.get(`/booking/${query}`)\n\n//to show property firstname if it is not expected\nlet responseName = response.body.firstname\nconsole.log(\"Firstname with bookingId \" + query + \" is \" + responseName)\nexpect(response.status).to.eql(200);\nexpect(response.body).to.deep.equal(BOOKING_DATA);\ndone();",
+              "err": {
+                "message": "AssertionError: expected 418 to deeply equal 200",
+                "estack": "AssertionError: expected 418 to deeply equal 200\n    at Context.<anonymous> (api\\test\\getBooking.js:24:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 418\n+ 200\n"
+              },
+              "uuid": "c500750a-dde6-4a19-8f90-e621ff69ea24",
+              "parentUUID": "a94a1e46-383c-4f59-9932-e544e18f0e1b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "6329eb48-2b39-4a0c-8218-ace5c9363f69",
+            "c500750a-dde6-4a19-8f90-e621ff69ea24"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 3168,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "87cc78a1-af7c-4050-9ad1-de2ff579513e",
+          "title": "PATCH /booking/:id",
+          "fullFile": "C:\\Users\\Pinhome Engineer 17\\Documents\\Learning\\SampleApiAutomation\\api\\test\\updateBooking.js",
+          "file": "\\api\\test\\updateBooking.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Updates a current booking with a partial payload",
+              "fullTitle": "PATCH /booking/:id Updates a current booking with a partial payload",
+              "timedOut": false,
+              "duration": 1071,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const query = \"1\"\nconst response = await request\n.patch(`/booking/${query}`)\n.set({ Authorization: AUTH})\n.send({\n    \"firstname\" : \"James\",\n    \"lastname\" : \"Brown\"\n});\n\nexpect(response.status).to.eql(200);\nexpect(response.body.firstname).to.eql(\"James\");\nexpect(response.body.lastname).to.eql(\"Brown\");\nexpect(response.body.totalprice).to.eql(BOOKING_DATA.totalprice);\nexpect(response.body.depositpaid).to.eql(BOOKING_DATA.depositpaid);\nexpect(response.body.bookingdates.checkin).to.eql(BOOKING_DATA.bookingdates.checkin);\nexpect(response.body.bookingdates.checkout).to.eql(BOOKING_DATA.bookingdates.checkout);",
+              "err": {
+                "message": "AssertionError: expected 405 to deeply equal 200",
+                "estack": "AssertionError: expected 405 to deeply equal 200\n    at Context.<anonymous> (api\\test\\updateBooking.js:17:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 200\n"
+              },
+              "uuid": "d239bbaa-f881-4f11-ae70-2a2603b351a0",
+              "parentUUID": "87cc78a1-af7c-4050-9ad1-de2ff579513e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d239bbaa-f881-4f11-ae70-2a2603b351a0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1071,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
