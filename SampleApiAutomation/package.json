@@ -1,0 +1,16 @@
+{
+  "name": "sampleapiautomation",
+  "version": "1.0.0",
+  "description": "api automation testing using supertest, mocha and chai from sample rest api url",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha"
+  },
+  "author": "vivi",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0",
+    "supertest": "^6.3.1"
+  }
+}
