@@ -9,7 +9,6 @@ describe('[Test Scenario] Login', () => {
         cy.get('.login')
           .find('[type="submit"]').click()
         cy.url().should('include', '/overview')
-          
     })
 
     it('[TC002] Input valid username and password - Negative Case', () => {
@@ -22,7 +21,6 @@ describe('[Test Scenario] Login', () => {
           .find('[type="submit"]').click()
         cy.url().should('include', '/login')
         cy.contains('Error!')
-          
     })
 
     it('[TC003] Try forgot password - Negative Case', () => {
@@ -46,7 +44,6 @@ describe('[Test Scenario] Login', () => {
         cy.get('#lookupForm').find('[id="ssn"]').type('12345')
         cy.get('#lookupForm').find('[type="submit"]').click()
         cy.contains(`${Cypress.env('username')}`)
-        cy.contains(`${Cypress.env('username')}`)
-        
+        cy.contains(`${Cypress.env('password')}`)
     })
 })
